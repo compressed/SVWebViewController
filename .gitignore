@@ -12,7 +12,7 @@ project.xcworkspace/
 xcuserdata/
 
 # Generated files
-build/
+build-*/
 *.[oa]
 *.pyc
 
