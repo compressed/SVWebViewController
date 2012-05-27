@@ -133,11 +133,11 @@
 #pragma mark - View lifecycle
 
 - (void)loadView {
-    mainWebView = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    mainWebView.delegate = self;
-    mainWebView.scalesPageToFit = YES;
-    [mainWebView loadRequest:[NSURLRequest requestWithURL:self.URL]];
-    self.view = mainWebView;
+    self.mainWebView = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.mainWebView.delegate = self;
+    self.mainWebView.scalesPageToFit = YES;
+    [self.mainWebView loadRequest:[NSURLRequest requestWithURL:self.URL]];
+    self.view = self.mainWebView;
 }
 
 - (void)viewDidLoad {
@@ -147,7 +147,7 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    mainWebView = nil;
+    self.mainWebView = nil;
     backBarButtonItem = nil;
     forwardBarButtonItem = nil;
     refreshBarButtonItem = nil;
@@ -288,15 +288,15 @@
 }
 
 - (void)goForwardClicked:(UIBarButtonItem *)sender {
-    [mainWebView goForward];
+    [self.mainWebView goForward];
 }
 
 - (void)reloadClicked:(UIBarButtonItem *)sender {
-    [mainWebView reload];
+    [self.mainWebView reload];
 }
 
 - (void)stopClicked:(UIBarButtonItem *)sender {
-    [mainWebView stopLoading];
+    [self.mainWebView stopLoading];
 	[self updateToolbarItems];
 }
 
