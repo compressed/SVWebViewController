@@ -284,7 +284,7 @@
 #pragma mark - Target actions
 
 - (void)goBackClicked:(UIBarButtonItem *)sender {
-    [mainWebView goBack];
+    [self.mainWebView goBack];
 }
 
 - (void)goForwardClicked:(UIBarButtonItem *)sender {
